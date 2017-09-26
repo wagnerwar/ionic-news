@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inclusão de Noticia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<div *ngIf="noticia">
+
+<ion-list>
+
+<ion-item>
+    <ion-label color="primary">Nome:</ion-label>
+    <ion-input placeholder="Nome" [(ngModel)]="noticia.nome"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label color="primary">Descrição:</ion-label>
+    <ion-input placeholder="Descrição" [(ngModel)]="noticia.descricao"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-textarea placeholder="Inclua sua notícia aqui" [(ngModel)]="noticia.texto"></ion-textarea>
+</ion-item>
+
+
+</ion-list>
+
+
+</div>
+  
+<button ion-button secondary>Cadastrar</button>
+</ion-content>
