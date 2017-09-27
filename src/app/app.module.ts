@@ -17,7 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     NoticiasPage,
-    CriacaoNoticiaPage 
+    CriacaoNoticiaPage,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     NoticiasPage,
-    CriacaoNoticiaPage
+    CriacaoNoticiaPage,
   ],
   providers: [
     StatusBar,
