@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar secondary>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,5 +9,16 @@
 
 <ion-content padding>
   <h3>Notícias</h3>
-  <button ion-button secondary (click)="cadastrar()">Cadastrar</button>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of noticias" >
+     {{item.nome}}
+      <div class="actions" item-right>
+           <button ion-button > <ion-icon name="clipboard"></ion-icon> </button>
+           <button ion-button ><ion-icon name="trash"></ion-icon></button>
+      </div>
+  
+    </button>
+  </ion-list>
+  <button ion-button secondary  (click)="cadastrar()"> <ion-icon name="add"></ion-icon> Cadastrar</button>
 </ion-content>

@@ -5,8 +5,6 @@ import { AlertController } from 'ionic-angular';
 import { NoticiasPage } from '../noticias/noticias';
 import { AppService } from '../../app/app.service';
 
-
-
 @Component({
   selector: 'criacao-noticia',
   templateUrl: 'criacao-noticia.html'
@@ -47,6 +45,4 @@ export class CriacaoNoticiaPage {
     });
     alert.present();
   }
-
-
 }
