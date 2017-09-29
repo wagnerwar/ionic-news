@@ -1,24 +1,18 @@
 <ion-header>
-  <ion-navbar secondary>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar color="secondary">
     <ion-title>Noticias</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
   <h3>Notícias</h3>
-
   <ion-list>
-    <button ion-item *ngFor="let item of noticias" >
+    <ion-item *ngFor="let item of noticias" >
      {{item.nome}}
       <div class="actions" item-right>
-           <button ion-button > <ion-icon name="clipboard"></ion-icon> </button>
-           <button ion-button ><ion-icon name="trash"></ion-icon></button>
+           <button ion-button (click)="editarNoticia(item,$event)"> <ion-icon name="clipboard"></ion-icon> </button>
+           <button ion-button (click)="excluirNoticia(item,$event)"><ion-icon name="trash"></ion-icon></button>
       </div>
-  
-    </button>
+    </ion-item>
   </ion-list>
-  <button ion-button secondary  (click)="cadastrar()"> <ion-icon name="add"></ion-icon> Cadastrar</button>
+  <button ion-button secondary  (click)="cadastrar()"><ion-icon name="add"></ion-icon></button>
 </ion-content>

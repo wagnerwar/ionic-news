@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Edição de Noticia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<div *ngIf="noticia">
+
+<input type="hidden" name="id" value="{{noticia.id}}" [(ngModel)]="noticia.id" /> 
+<ion-list>
+
+<ion-item>
+    <ion-label color="primary">Nome:</ion-label>
+    <ion-input placeholder="Nome" [(ngModel)]="noticia.nome" value="{{noticia.nome}}"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label color="primary">Descrição:</ion-label>
+    <ion-input placeholder="Descrição" [(ngModel)]="noticia.descricao" value="{{noticia.descricao}}"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-textarea placeholder="Inclua sua notícia aqui" [(ngModel)]="noticia.texto">{{noticia.texto}}</ion-textarea>
+</ion-item>
+
+
+</ion-list>
+
+
+</div>
+  
+<button ion-button secondary (click)="atualizar(noticia,$event)">Cadastrar</button>
+</ion-content>

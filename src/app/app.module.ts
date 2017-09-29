@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { NoticiasPage  } from '../pages/noticias/noticias';
 import { CriacaoNoticiaPage } from '../pages/criacao-noticia/criacao-noticia';
-
+import { EdicaoNoticiaPage } from '../pages/edicao-noticia/edicao-noticia';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -18,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     NoticiasPage,
     CriacaoNoticiaPage,
+    EdicaoNoticiaPage
   ],
   imports: [
     BrowserModule,
@@ -30,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     NoticiasPage,
     CriacaoNoticiaPage,
+    EdicaoNoticiaPage
   ],
   providers: [
     StatusBar,

@@ -4,34 +4,40 @@ import { Noticia } from '../../app/noticia';
 import { AlertController } from 'ionic-angular';
 import { NoticiasPage } from '../noticias/noticias';
 import { AppService } from '../../app/app.service';
+import { NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'criacao-noticia',
-  templateUrl: 'criacao-noticia.html'
+  selector: 'edicao-noticia',
+  templateUrl: 'edicao-noticia.html'
 })
 
-export class CriacaoNoticiaPage {
+export class EdicaoNoticiaPage {
   //@Output() close = new EventEmitter();
-  noticia: Noticia;
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-   this.noticia = new Noticia();
+  noticia = new Noticia();
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams ) {
+   try{
+     var id = navParams.get('id');
+     this.getNoticia(id);
+   }catch(err){
+     console.log(err); 
+   }
   }
 
-  cadastrar(noticia: Noticia,  event: any){
+  getNoticia(id){
     try{
-      var db = new AppService();       
-      db.cadastrar(noticia);
-    }catch(err){
-      console.log(err); 
-    }
-    this.showAlert(); 
-    this.navCtrl.push(NoticiasPage); 
+     var db = new AppService();
+     this.noticia = db.consultarNoticia(id)[0];
+     console.log(this.noticia);
+   }catch(err){
+     console.log(err);
+   }
   }
 
   showAlert() {
     let alert = this.alertCtrl.create({
     title: 'Parabéns!',
-    subTitle: 'Cadastro realizado com sucesso!',
+    subTitle: 'Cadastro atualizado com sucesso!',
     buttons: ['OK']
     });
     alert.present();
@@ -46,4 +52,3 @@ export class CriacaoNoticiaPage {
     alert.present();
   }
 }
-
