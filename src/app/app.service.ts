@@ -164,4 +164,48 @@ export class  AppService{
    return saida;
   }
 
+
+  editarNoticia(noticia: Noticia){
+    try{
+      if (!window.indexedDB) {
+        console.log("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
+        return false;
+      }
+
+     var conn = window.indexedDB.open("db", 2);
+
+     conn.onerror = function(event) {
+       console.log("Database error: " + event.target);
+     };
+
+     conn.onsuccess = function(event) {
+      var db =  conn.result;
+      console.log(db);
+      var transaction = db.transaction(["noticias"], "readwrite");
+      var objectStore = transaction.objectStore("noticias");
+      objectStore.openCursor().onsuccess = function(evt){
+        var cursor = evt.target.result;
+        if(cursor){
+          var registro = cursor.value;
+          if(cursor.value.id == noticia.id){
+            var registro = cursor.value;
+            registro.nome = noticia.nome;
+            registro.descricao = noticia.descricao;
+            registro.texto = noticia.texto;
+            console.log(registro);
+            var transacao = cursor.update(registro); 
+            transacao.onsuccess = function(){
+              console.log("Atualização efetuada com sucesso"); 
+            } 
+          } 
+        } 
+      }
+      return true;
+    }
+
+   }catch(err){
+     return false;
+   }
+ 
+  }
 }

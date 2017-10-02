@@ -45,7 +45,7 @@ export class NoticiasPage {
   }
 
   editarNoticia(noticia: Noticia,  event: any){
-    this.navCtrl.push(EdicaoNoticiaPage,{ id: noticia.id}); 
+    this.navCtrl.push(EdicaoNoticiaPage,{ noticia: noticia}); 
   }
 
   exibeMensagem(msg: string){

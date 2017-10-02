@@ -17,18 +17,16 @@ export class EdicaoNoticiaPage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams ) {
    try{
-     var id = navParams.get('id');
-     this.getNoticia(id);
+     var noticia = navParams.get('noticia');
+     this.getNoticia(noticia);
    }catch(err){
      console.log(err); 
    }
   }
 
-  getNoticia(id){
+  getNoticia(noticia){
     try{
-     var db = new AppService();
-     this.noticia = db.consultarNoticia(id)[0];
-     console.log(this.noticia);
+     this.noticia = noticia;
    }catch(err){
      console.log(err);
    }
@@ -51,4 +49,18 @@ export class EdicaoNoticiaPage {
     });
     alert.present();
   }
+
+  atualizar(noticia: Noticia){
+    console.log(noticia); 
+    try{
+      var db = new AppService();
+      db.editarNoticia(noticia);       
+      this.showAlert(); 
+      this.navCtrl.push(NoticiasPage);
+    }catch(err){
+      console.log(err); 
+      this.showAlertErro();
+    }
+  }
+
 }
