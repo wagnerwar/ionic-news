@@ -2,7 +2,13 @@ Este projeto utiliza o framework Ionic, e é baseado no Angular.JS.
 
 Foi implementada uma manutenção de notícias, utilizando o IndexedDB para atualização de dados.
 
+Necessário ter instalado o node.js e o npm, que é o gerenciador de pacotes do node.js.
+
 Instalação
+
+        git clone https://github.com/wagnerwar/ionic-news.git
+        
+        cd ionic-news/
 
         npm install -g cordova ionic@latest
 
