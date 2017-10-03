@@ -7,6 +7,7 @@ Instalação
 Para executar o projeto
         ionic serve
 
+Logo após o comando acima, acesse http://localhost:8100 pelo navegador.
 
 Links interessantes
 https://angular.io/guide/quickstart
