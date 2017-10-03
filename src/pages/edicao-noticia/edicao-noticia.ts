@@ -54,6 +54,16 @@ export class EdicaoNoticiaPage {
     console.log(noticia); 
     try{
       var db = new AppService();
+      if(!noticia.hasOwnProperty("nome") || !noticia.hasOwnProperty("texto")){
+        this.showAlertErroFormulario();
+        return;
+      }
+
+      if(noticia.nome == "" || noticia.texto == ""){
+        this.showAlertErroFormulario();
+        return;
+      }
+
       db.editarNoticia(noticia);       
       this.showAlert(); 
       this.navCtrl.push(NoticiasPage);
@@ -61,6 +71,15 @@ export class EdicaoNoticiaPage {
       console.log(err); 
       this.showAlertErro();
     }
+  }
+
+  showAlertErroFormulario() {
+    let alert = this.alertCtrl.create({
+    title: 'ERROU!',
+    subTitle: 'Campos Nome e Texto são obrigatórios!',
+    buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

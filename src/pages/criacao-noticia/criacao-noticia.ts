@@ -20,6 +20,11 @@ export class CriacaoNoticiaPage {
   cadastrar(noticia: Noticia,  event: any){
     try{
       var db = new AppService();       
+      console.log(noticia);
+      if(!noticia.hasOwnProperty("nome") || !noticia.hasOwnProperty("texto")){
+        this.showAlertErroFormulario();
+        return; 
+      }
       db.cadastrar(noticia);
     }catch(err){
       console.log(err); 
@@ -41,6 +46,15 @@ export class CriacaoNoticiaPage {
     let alert = this.alertCtrl.create({
     title: 'ERROU!',
     subTitle: 'Chama o Desenvolvedor!',
+    buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertErroFormulario() {
+    let alert = this.alertCtrl.create({
+    title: 'ERROU!',
+    subTitle: 'Campos Nome e Texto são obrigatórios!',
     buttons: ['OK']
     });
     alert.present();
