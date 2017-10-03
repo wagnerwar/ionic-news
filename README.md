@@ -28,3 +28,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
 
 https://www.joshmorony.com/a-guide-to-styling-an-ionic-2-application/
 
+https://ionicframework.com/docs/
