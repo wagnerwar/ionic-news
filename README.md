@@ -2,7 +2,7 @@ Este projeto utiliza o framework Ionic, e é baseado no Angular.JS.
 
 Foi implementada uma manutenção de notícias, utilizando o IndexedDB para atualização de dados.
 
-Necessário ter instalado o node.js e o npm, que é o gerenciador de pacotes do node.js.
+Necessário ter instalado o node.js e o npm (https://docs.npmjs.com/getting-started/installing-node).
 
 Instalação
 
