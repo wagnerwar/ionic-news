@@ -12,6 +12,9 @@ Instalação
 
         npm install -g cordova ionic@latest
 
+        npm install
+        
+        
 Para executar o projeto
 
         ionic serve
