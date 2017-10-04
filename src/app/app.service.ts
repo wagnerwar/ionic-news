@@ -25,6 +25,14 @@ export class  AppService{
         console.log("Database error: " + event.target);
       };
 
+      conn.onupgradeneeded = function(event) {
+        var db = conn.result;
+        console.log(db);
+        var objectStore = db.createObjectStore("noticias", { keyPath: "id", autoIncrement: true });
+        objectStore.createIndex("nome", "name", { unique: false });
+        objectStore.createIndex("descricao", "descricao", { unique: false });
+        console.log("Criação da estrutura feita com sucesso");
+      };
       conn.onsuccess = function(event) {
         var db =  conn.result;
         console.log(db);
